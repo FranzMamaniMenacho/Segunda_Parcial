@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotelXD</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<h1>Hostal - El Refugio del Caminante</h1>
+
+<div id="entitySelector">
+    <button class="tab-button active" onclick="changeEntity('clientes')">Clientes</button>
+    <button class="tab-button" onclick="changeEntity('habitaciones')">Habitaciones</button>
+    <button class="tab-button" onclick="changeEntity('pagos')">Pagos</button>
+    <button class="tab-button" onclick="changeEntity('parqueos')">Parqueos</button>
+    <button class="tab-button" onclick="changeEntity('personal')">Personal</button>
+    <button class="tab-button" onclick="changeEntity('reservas')">Reservas</button>
+</div>
+
+<div id="operaciones">
+    <h2>Gestion y control del Hostal</h2>
+    <button onclick="getAll()">Buscar Todos</button>
+    <button onclick="getById()">Buscar por ID</button>
+    <button onclick="showCreateForm()">Crear nuevo</button>
+    <button onclick="showUpdateForm()">Actualizar</button>
+    <button onclick="showPatchForm()">Modificar</button>
+    <button onclick="deletePrompt()">Eliminar</button>
+</div>
+
+<div id="formPanel" style="display: none;">
+    <h3 id="formTitle">Operación</h3>
+    <form id="dataForm">
+
+    </form>
+    <button type="button" id="submitBtn">Ejecutar</button>
+    <button type="button" onclick="hideForm()">Cancelar</button>
+</div>
+
+<div id="results">
+    <h2>Resultados y Listas</h2>
+    <pre id="output"></pre>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

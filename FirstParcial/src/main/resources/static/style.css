@@ -1,0 +1,157 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #eaf2f8;
+}
+
+h1 {
+    color: #1f3c5d;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #5d8e8f;
+}
+
+h2, h3 {
+    color: #34758f;
+}
+
+#entitySelector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background-color: #d0e9f7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    background-color: #b8cde0;
+}
+
+.tab-button.active {
+    background-color: #5d8e8f;
+    color: white;
+}
+
+#operaciones {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+#operaciones h2 {
+    margin-top: 0;
+}
+
+#operaciones button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #5d8e8f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#operaciones button:hover {
+    background-color: #3e6f7b;
+}
+
+#formPanel {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+#formPanel h3 {
+    margin-top: 0;
+}
+
+#dataForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#dataForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+#dataForm input,
+#dataForm select,
+#dataForm textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#formPanel button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#submitBtn {
+    background-color: #34758f;
+    color: white;
+}
+
+#submitBtn:hover {
+    background-color: #2980b9;
+}
+
+#formPanel button[type="button"]:last-child {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#formPanel button[type="button"]:last-child:hover {
+    background-color: #c0392b;
+}
+
+#results {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#output {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+}

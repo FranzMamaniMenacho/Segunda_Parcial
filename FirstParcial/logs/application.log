@@ -1,0 +1,184 @@
+2025-04-29 12:42:50 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 16156 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-29 12:42:50 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 12:42:51 - Tomcat initialized with port 8080 (http)
+2025-04-29 12:42:51 - Starting service [Tomcat]
+2025-04-29 12:42:51 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 12:42:51 - Initializing Spring embedded WebApplicationContext
+2025-04-29 12:42:51 - Root WebApplicationContext: initialization completed in 1155 ms
+2025-04-29 12:42:51 - Adding welcome page: class path resource [static/index.html]
+2025-04-29 12:42:51 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-29 12:42:51 - Started FirstParcialSis414Application in 2.257 seconds (process running for 2.565)
+2025-04-29 12:44:20 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 12:44:20 - Initializing Servlet 'dispatcherServlet'
+2025-04-29 12:44:20 - Completed initialization in 0 ms
+2025-04-29 12:44:41 - Obteniendo listado completo de clientes
+2025-04-29 12:45:08 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 3212 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-29 12:45:08 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 12:45:09 - Tomcat initialized with port 8080 (http)
+2025-04-29 12:45:09 - Starting service [Tomcat]
+2025-04-29 12:45:09 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 12:45:09 - Initializing Spring embedded WebApplicationContext
+2025-04-29 12:45:09 - Root WebApplicationContext: initialization completed in 1262 ms
+2025-04-29 12:45:09 - Adding welcome page: class path resource [static/index.html]
+2025-04-29 12:45:09 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-29 12:45:09 - Started FirstParcialSis414Application in 2.516 seconds (process running for 2.879)
+2025-04-29 12:45:40 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 13452 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-29 12:45:40 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 12:45:41 - Tomcat initialized with port 8080 (http)
+2025-04-29 12:45:41 - Starting service [Tomcat]
+2025-04-29 12:45:41 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 12:45:41 - Initializing Spring embedded WebApplicationContext
+2025-04-29 12:45:41 - Root WebApplicationContext: initialization completed in 1045 ms
+2025-04-29 12:45:42 - Adding welcome page: class path resource [static/index.html]
+2025-04-29 12:45:42 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-29 12:45:42 - Started FirstParcialSis414Application in 2.162 seconds (process running for 2.557)
+2025-04-29 12:45:45 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 12:45:45 - Initializing Servlet 'dispatcherServlet'
+2025-04-29 12:45:45 - Completed initialization in 0 ms
+2025-04-29 12:45:45 - Obteniendo listado completo de clientes
+2025-04-29 12:46:00 - Consultando cliente con ID: 1
+2025-04-29 12:46:00 - Cliente con ID 1 no encontrado
+2025-04-29 12:46:20 - Cliente creado exitosamente con ID: 1
+2025-04-29 12:46:24 - Obteniendo listado completo de clientes
+2025-04-29 12:46:32 - Consultando cliente con ID: 1
+2025-04-29 12:50:50 - Obteniendo listado completo de clientes
+2025-04-29 12:52:40 - Cliente con ID 1 actualizado exitosamente
+2025-04-29 12:53:22 - Obteniendo listado completo de clientes
+2025-04-29 12:54:37 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 1696 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-29 12:54:37 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 12:54:38 - Tomcat initialized with port 8080 (http)
+2025-04-29 12:54:38 - Starting service [Tomcat]
+2025-04-29 12:54:38 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 12:54:38 - Initializing Spring embedded WebApplicationContext
+2025-04-29 12:54:38 - Root WebApplicationContext: initialization completed in 1090 ms
+2025-04-29 12:54:38 - Adding welcome page: class path resource [static/index.html]
+2025-04-29 12:54:38 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-29 12:54:38 - Started FirstParcialSis414Application in 2.272 seconds (process running for 2.571)
+2025-04-29 12:54:42 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 12:54:42 - Initializing Servlet 'dispatcherServlet'
+2025-04-29 12:54:42 - Completed initialization in 3 ms
+2025-04-29 12:55:05 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 16592 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-29 12:55:05 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 12:55:06 - Tomcat initialized with port 8080 (http)
+2025-04-29 12:55:06 - Starting service [Tomcat]
+2025-04-29 12:55:06 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 12:55:06 - Initializing Spring embedded WebApplicationContext
+2025-04-29 12:55:06 - Root WebApplicationContext: initialization completed in 1464 ms
+2025-04-29 12:55:06 - Adding welcome page: class path resource [static/index.html]
+2025-04-29 12:55:07 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-29 12:55:07 - Started FirstParcialSis414Application in 2.918 seconds (process running for 3.386)
+2025-04-29 12:55:07 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 12:55:07 - Initializing Servlet 'dispatcherServlet'
+2025-04-29 12:55:07 - Completed initialization in 0 ms
+2025-04-29 12:55:49 - Cliente creado exitosamente con ID: 1
+2025-04-29 12:57:17 - No se encontró cliente con ID 2 para eliminar
+2025-04-29 12:57:23 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 5288 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-29 12:57:23 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 12:57:24 - Tomcat initialized with port 8080 (http)
+2025-04-29 12:57:24 - Starting service [Tomcat]
+2025-04-29 12:57:24 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 12:57:24 - Initializing Spring embedded WebApplicationContext
+2025-04-29 12:57:24 - Root WebApplicationContext: initialization completed in 1010 ms
+2025-04-29 12:57:24 - Adding welcome page: class path resource [static/index.html]
+2025-04-29 12:57:24 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-29 12:57:24 - Started FirstParcialSis414Application in 2.171 seconds (process running for 2.545)
+2025-04-29 12:57:51 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 12:57:51 - Initializing Servlet 'dispatcherServlet'
+2025-04-29 12:57:51 - Completed initialization in 3 ms
+2025-04-29 12:57:55 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 9252 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-29 12:57:55 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 12:57:56 - Tomcat initialized with port 8080 (http)
+2025-04-29 12:57:56 - Starting service [Tomcat]
+2025-04-29 12:57:56 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 12:57:56 - Initializing Spring embedded WebApplicationContext
+2025-04-29 12:57:56 - Root WebApplicationContext: initialization completed in 1147 ms
+2025-04-29 12:57:56 - Adding welcome page: class path resource [static/index.html]
+2025-04-29 12:57:57 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-29 12:57:57 - Started FirstParcialSis414Application in 2.239 seconds (process running for 2.583)
+2025-04-29 12:57:58 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 12:57:58 - Initializing Servlet 'dispatcherServlet'
+2025-04-29 12:57:58 - Completed initialization in 0 ms
+2025-04-29 12:57:58 - Obteniendo listado completo de clientes
+2025-04-29 12:58:08 - No se encontró cliente con ID 1 para eliminar
+2025-04-29 12:58:27 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 18768 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-29 12:58:27 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 12:58:28 - Tomcat initialized with port 8080 (http)
+2025-04-29 12:58:28 - Starting service [Tomcat]
+2025-04-29 12:58:28 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 12:58:29 - Initializing Spring embedded WebApplicationContext
+2025-04-29 12:58:29 - Root WebApplicationContext: initialization completed in 1016 ms
+2025-04-29 12:58:29 - Adding welcome page: class path resource [static/index.html]
+2025-04-29 12:58:29 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-29 12:58:29 - Started FirstParcialSis414Application in 2.096 seconds (process running for 2.444)
+2025-04-29 12:58:34 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 12:58:34 - Initializing Servlet 'dispatcherServlet'
+2025-04-29 12:58:34 - Completed initialization in 0 ms
+2025-04-29 12:58:40 - No se encontró cliente con ID 1 para eliminar
+2025-04-29 13:00:31 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 15920 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-29 13:00:31 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 13:00:32 - Tomcat initialized with port 8080 (http)
+2025-04-29 13:00:32 - Starting service [Tomcat]
+2025-04-29 13:00:32 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 13:00:32 - Initializing Spring embedded WebApplicationContext
+2025-04-29 13:00:32 - Root WebApplicationContext: initialization completed in 1011 ms
+2025-04-29 13:00:32 - Adding welcome page: class path resource [static/index.html]
+2025-04-29 13:00:32 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-29 13:00:32 - Started FirstParcialSis414Application in 2.18 seconds (process running for 2.593)
+2025-04-29 13:00:35 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 13:00:35 - Initializing Servlet 'dispatcherServlet'
+2025-04-29 13:00:35 - Completed initialization in 0 ms
+2025-04-29 13:00:35 - Obteniendo listado completo de clientes
+2025-04-29 13:00:39 - Consultando cliente con ID: 1
+2025-04-29 13:00:39 - Cliente con ID 1 no encontrado
+2025-04-29 13:35:53 - Obteniendo listado completo de clientes
+2025-04-29 13:35:59 - Cliente creado exitosamente con ID: 5
+2025-04-29 13:36:06 - Obteniendo listado completo de clientes
+2025-04-29 13:36:14 - No existe cliente con ID 1 para actualizar
+2025-04-29 13:36:32 - Cliente creado exitosamente con ID: 1
+2025-04-29 13:36:35 - Cliente con ID 1 actualizado exitosamente
+2025-04-29 13:36:42 - Nombres actualizados para cliente ID: 1
+2025-04-29 13:36:42 - Teléfono actualizado para cliente ID: 1
+2025-04-29 13:36:42 - Cliente con ID 1 actualizado parcialmente
+2025-04-29 13:37:02 - Obteniendo listado completo de pagos
+2025-04-29 13:37:07 - Pago creado exitosamente con ID: pago003
+2025-04-29 13:37:11 - Obteniendo listado completo de pagos
+2025-04-29 13:38:59 - Pago con ID 1 no encontrado para actualización
+2025-04-29 13:39:02 - Obteniendo listado completo de pagos
+2025-04-29 13:39:15 - Pago creado exitosamente con ID: 1
+2025-04-29 13:39:20 - Obteniendo listado completo de pagos
+2025-04-29 13:39:30 - Estado actualizado para pago ID: 1
+2025-04-29 13:39:30 - Monto actualizado para pago ID: 1
+2025-04-29 13:39:30 - Pago con ID 1 actualizado parcialmente
+2025-04-29 13:41:03 - Obteniendo listado completo de reservas
+2025-04-29 13:53:31 - Reserva creada exitosamente: FirstParcial.sis414.FirstParcial.entity.Reserv@49b8fe03
+2025-04-29 13:53:56 - Reserva actualizada: FirstParcial.sis414.FirstParcial.entity.Reserv@49b8fe03
+2025-04-29 14:02:03 - Obteniendo listado completo de personal
+2025-04-29 14:02:23 - Consultando personal con ID: 1
+2025-04-29 14:02:23 - Personal con ID 1 no encontrado
+2025-04-29 14:03:45 - Consultando personal con ID: 1
+2025-04-29 14:03:45 - Personal con ID 1 no encontrado
+2025-04-29 14:03:55 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-04-29 14:04:21 - Personal creado exitosamente con ID: 1
+2025-04-29 14:05:08 - Obteniendo listado completo de personal
+2025-04-29 14:07:23 - Error: Personal con ID 1 ya existe
+2025-04-29 14:08:05 - Personal con ID 1 eliminado correctamente
+2025-04-29 14:10:05 - Personal con ID 1 no encontrado para actualización
+2025-04-29 17:25:15 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 12252 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Primera_parcial_SIS414\FirstParcial)
+2025-04-29 17:25:15 - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 17:25:16 - Tomcat initialized with port 8080 (http)
+2025-04-29 17:25:16 - Starting service [Tomcat]
+2025-04-29 17:25:16 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-29 17:25:16 - Initializing Spring embedded WebApplicationContext
+2025-04-29 17:25:16 - Root WebApplicationContext: initialization completed in 1331 ms
+2025-04-29 17:25:16 - Adding welcome page: class path resource [static/index.html]
+2025-04-29 17:25:17 - Tomcat started on port 8080 (http) with context path '/'
+2025-04-29 17:25:17 - Started FirstParcialSis414Application in 2.896 seconds (process running for 3.546)
+2025-04-29 17:25:18 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 17:25:18 - Initializing Servlet 'dispatcherServlet'
+2025-04-29 17:25:18 - Completed initialization in 0 ms
+2025-04-29 17:25:30 - Obteniendo listado completo de clientes
+2025-04-29 17:25:35 - Consultando cliente con ID: 1
+2025-04-29 17:25:35 - Cliente con ID 1 no encontrado
+2025-04-29 17:39:48 - Obteniendo listado completo de clientes
+2025-04-29 17:39:54 - Consultando cliente con ID: 1
+2025-04-29 17:39:54 - Cliente con ID 1 no encontrado

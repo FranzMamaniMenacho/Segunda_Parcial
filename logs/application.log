@@ -1,0 +1,10 @@
+2025-06-01 08:27:48 - Starting FirstParcialSis414Application using Java 21.0.6 with PID 13724 (C:\Users\COREi3\OneDrive\Escritorio\SIS414\Segundo_parcial_SIS414\FirstParcial\build\classes\java\main started by COREi3 in C:\Users\COREi3\OneDrive\Escritorio\SIS414\Segundo_parcial_SIS414)
+2025-06-01 08:27:48 - No active profile set, falling back to 1 default profile: "default"
+2025-06-01 08:27:50 - Tomcat initialized with port 8080 (http)
+2025-06-01 08:27:50 - Starting service [Tomcat]
+2025-06-01 08:27:50 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-06-01 08:27:50 - Initializing Spring embedded WebApplicationContext
+2025-06-01 08:27:50 - Root WebApplicationContext: initialization completed in 1802 ms
+2025-06-01 08:27:50 - Adding welcome page: class path resource [static/index.html]
+2025-06-01 08:27:50 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-01 08:27:50 - Started FirstParcialSis414Application in 3.294 seconds (process running for 3.859)
