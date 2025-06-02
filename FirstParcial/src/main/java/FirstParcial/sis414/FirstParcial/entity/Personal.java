@@ -1,6 +1,12 @@
 package FirstParcial.sis414.FirstParcial.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "personal")
 public class Personal {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nombre;
     private String rol;

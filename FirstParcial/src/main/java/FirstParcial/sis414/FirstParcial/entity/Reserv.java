@@ -1,6 +1,13 @@
 package FirstParcial.sis414.FirstParcial.entity;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
+
+@Entity
+@Table(name = "reserv")
 public class Reserv {
+     @Id
+     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Long clienteId;
     private Long habitacionId;

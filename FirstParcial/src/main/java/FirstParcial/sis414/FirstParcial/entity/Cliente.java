@@ -1,8 +1,14 @@
 package FirstParcial.sis414.FirstParcial.entity;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
+@Table(name="cliente")
 public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nombres;
     private String apellidos;

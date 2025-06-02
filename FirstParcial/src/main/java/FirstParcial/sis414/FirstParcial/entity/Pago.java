@@ -1,8 +1,15 @@
 package FirstParcial.sis414.FirstParcial.entity;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name="pago")
+
 public class Pago {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private double monto;
     private LocalDate date;
