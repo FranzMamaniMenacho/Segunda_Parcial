@@ -4,6 +4,10 @@ import FirstParcial.sis414.FirstParcial.entity.Cliente;
 import FirstParcial.sis414.FirstParcial.entity.Habitacion;
 import FirstParcial.sis414.FirstParcial.entity.Pago;
 import FirstParcial.sis414.FirstParcial.entity.Reserv;
+import FirstParcial.sis414.FirstParcial.repository.ClienteRepository;
+import FirstParcial.sis414.FirstParcial.repository.HabitacionRepository;
+import FirstParcial.sis414.FirstParcial.repository.PagoRepository;
+import FirstParcial.sis414.FirstParcial.repository.ReservRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +26,18 @@ public class ReservController {
 
     private static final Logger logger = LoggerFactory.getLogger(ReservController.class);
     private final List<Reserv> reservas = new ArrayList<>();
+    private final ReservRepository reservRepository;
+    private final ClienteRepository clienteRepository;
+    private final HabitacionRepository habitacionRepository;
+    private final PagoRepository pagoRepository;
+
+    public ReservController(ReservRepository reservRepository, ClienteRepository clienteRepository, HabitacionRepository habitacionRepository, PagoRepository pagoRepository) {
+        this.reservRepository = reservRepository;
+        this.clienteRepository = clienteRepository;
+        this.habitacionRepository = habitacionRepository;
+        this.pagoRepository = pagoRepository;
+    }
+
     @GetMapping
     public ResponseEntity<List<Reserv>> getAllReservas() {
         logger.info("Obteniendo listado completo de reservas");
@@ -87,11 +103,11 @@ public class ReservController {
             }
 
             Reserv toUpdate = existingReserva.get();
-            toUpdate.setClienteId(reserva.getClienteId());
-            toUpdate.setHabitacionId(reserva.getHabitacionId());
+            toUpdate.setCliente(reserva.getCliente());
+            toUpdate.setHabitacion(reserva.getHabitacion());
             toUpdate.setFechaEntrada(reserva.getFechaEntrada());
             toUpdate.setFechaSalida(reserva.getFechaSalida());
-            toUpdate.setPagoId(reserva.getPagoId());
+            toUpdate.setPago(reserva.getPago());
 
             logger.info("Reserva actualizada: {}", toUpdate);
             return ResponseEntity.ok(toUpdate);
@@ -119,18 +135,39 @@ public class ReservController {
             Reserv reserva = reservaOpt.get();
             boolean hasUpdates = false;
 
+//            if (updates.containsKey("pago")) {
+//                Object pagoUpdate = updates.get("pago");
+//
+//                if (pagoUpdate instanceof Map<?, ?> pagoMap) {
+//                    reserva.setPago(((Number) pagoMap.get("id")).toString());
+//                } else if (pagoUpdate instanceof Number) {
+//                    reserva.setPago(((Number) pagoUpdate).toString());
+//                }
+//
+//                hasUpdates = true;
+//            }
             if (updates.containsKey("pago")) {
                 Object pagoUpdate = updates.get("pago");
 
-                if (pagoUpdate instanceof Map) {
-                    Map<?, ?> pagoMap = (Map<?, ?>) pagoUpdate;
-                    reserva.setPagoId(((Number) pagoMap.get("id")).longValue());
+                Long pagoId = null;
+
+                if (pagoUpdate instanceof Map<?, ?> pagoMap) {
+                    Object idValue = pagoMap.get("id");
+                    if (idValue instanceof Number) {
+                        pagoId = ((Number) idValue).longValue();
+                    }
                 } else if (pagoUpdate instanceof Number) {
-                    reserva.setPagoId(((Number) pagoUpdate).longValue());
+                    pagoId = ((Number) pagoUpdate).longValue();
                 }
 
-                hasUpdates = true;
+                if (pagoId != null) {
+                    Pago pago = new Pago();
+                    pago.setId(String.valueOf(pagoId)); // Asigna solo el ID
+                    reserva.setPago(pago);
+                    hasUpdates = true;
+                }
             }
+
 
             if (updates.containsKey("fechaEntrada")) {
                 reserva.setFechaEntrada(LocalDate.parse((String) updates.get("fechaEntrada")));

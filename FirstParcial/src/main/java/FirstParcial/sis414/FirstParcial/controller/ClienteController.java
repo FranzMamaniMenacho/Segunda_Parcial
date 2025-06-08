@@ -1,6 +1,7 @@
 package FirstParcial.sis414.FirstParcial.controller;
 
 import FirstParcial.sis414.FirstParcial.entity.Cliente;
+import FirstParcial.sis414.FirstParcial.repository.ClienteRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -17,25 +18,30 @@ public class ClienteController {
 
     private static final Logger logger = LoggerFactory.getLogger(ClienteController.class);
     private final List<Cliente> clientes = new ArrayList<>();
+    private final ClienteRepository clienteRepository;
+
+    public ClienteController(ClienteRepository clienteRepository) {
+        this.clienteRepository = clienteRepository;
+    }
 
     @GetMapping
-    public ResponseEntity<List<Cliente>> getAllClientes() {
+    public ClienteRepository getAllClientes() {
         logger.info("Obteniendo listado completo de clientes");
-        return ResponseEntity.ok(clientes);
+        return this.clienteRepository;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getClienteById(@PathVariable Long id) {
+    public ClienteRepository getClienteById(@PathVariable Long id) {
         logger.info("Consultando cliente con ID: {}", id);
         Optional<Cliente> cliente = clientes.stream()
                 .filter(c -> c.getId().equals(id))
                 .findFirst();
 
         if (cliente.isPresent()) {
-            return ResponseEntity.ok(cliente.get());
+            return this.clienteRepository;
         } else {
             logger.warn("Cliente con ID {} no encontrado", id);
-            return ResponseEntity.status(404).body("Cliente no encontrado");
+            return this.clienteRepository;
         }
     }
 
@@ -104,7 +110,7 @@ public class ClienteController {
         if (updates.getNombres() != null) {
             cliente.setNombres(updates.getNombres());
             logger.
-            info("Nombres actualizados para cliente ID: {}", id);
+                    info("Nombres actualizados para cliente ID: {}", id);
         }
         if (updates.getApellidos() != null) {
             cliente.setApellidos(updates.getApellidos());

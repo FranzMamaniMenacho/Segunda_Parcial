@@ -1,6 +1,7 @@
 package FirstParcial.sis414.FirstParcial.controller;
 
 import FirstParcial.sis414.FirstParcial.entity.Parqueo;
+import FirstParcial.sis414.FirstParcial.repository.PagoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,11 @@ public class ParqueoController {
 
     private static final Logger logger = LoggerFactory.getLogger(ParqueoController.class);
     private List<Parqueo> parqueos = new ArrayList<>();
+    private final PagoRepository parqueoRepository;
+
+    public ParqueoController(PagoRepository parqueoRepository) {
+        this.parqueoRepository = parqueoRepository;
+    }
 
     @GetMapping
     public ResponseEntity<List<Parqueo>> getAllParqueos() {

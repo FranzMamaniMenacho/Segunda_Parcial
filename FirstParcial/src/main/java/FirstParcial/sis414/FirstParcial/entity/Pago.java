@@ -8,6 +8,10 @@ import java.time.LocalDate;
 @Table(name="pago")
 
 public class Pago {
+    public String getId() {
+        return id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
@@ -27,7 +31,7 @@ public class Pago {
         this.estado = estado;
     }
 
-    public String getId() { return id; }
+
     public void setId(String id) { this.id = id; }
 
     public double getMonto() { return monto; }

@@ -1,6 +1,7 @@
 package FirstParcial.sis414.FirstParcial.controller;
 
 import FirstParcial.sis414.FirstParcial.entity.Habitacion;
+import FirstParcial.sis414.FirstParcial.repository.HabitacionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,11 @@ public class HabitacionController {
 
     private static final Logger logger = LoggerFactory.getLogger(HabitacionController.class);
     private List<Habitacion> habitaciones = new ArrayList<>();
+    private final HabitacionRepository habitacionRepository;
+
+    public HabitacionController(HabitacionRepository habitacionRepository) {
+        this.habitacionRepository = habitacionRepository;
+    }
 
     @GetMapping
     public ResponseEntity<List<Habitacion>> getAllHabitaciones() {

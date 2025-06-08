@@ -1,27 +1,39 @@
-package FirstParcial.sis414.FirstParcial.entity;
-import jakarta.persistence.*;
 
+package FirstParcial.sis414.FirstParcial.entity;
+
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "reserv")
 public class Reserv {
-     @Id
-     @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long clienteId;
-    private Long habitacionId;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente")
+    private Cliente clienteID;
+
+    @ManyToOne
+    @JoinColumn(name = "habitacionId")
+    private Habitacion habitacionID;
+
+
+    @OneToOne
+    @JoinColumn(name = "pagoId")
+    private Pago pagoID;
+
     private LocalDate fechaEntrada;
     private LocalDate fechaSalida;
-    private Long pagoId;
 
-    public Reserv(Long id, Long cliente, Long habitacion, LocalDate fechaEntrada, LocalDate fechaSalida, Long pagoId) {
-        this.id = id;
-        this.clienteId = cliente;
-        this.habitacionId = habitacion;
+    public Reserv(Cliente clienteID, Habitacion habitacionID, LocalDate fechaEntrada, LocalDate fechaSalida, Pago pagoID) {
+        this.clienteID = clienteID;
+        this.habitacionID = habitacionID;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
-        this.pagoId = pagoId;
+        this.pagoID = pagoID;
     }
 
     public Long getId() {
@@ -30,6 +42,30 @@ public class Reserv {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    
+    public Cliente getCliente() {
+        return clienteID;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.clienteID = cliente;
+    }
+
+    public Habitacion getHabitacion() {
+        return habitacionID;
+    }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacionID = habitacion;
+    }
+
+    public Pago getPago() {
+        return pagoID;
+    }
+
+    public void setPago(Pago pago) {
+        this.pagoID = pago;
     }
 
     public LocalDate getFechaEntrada() {
@@ -48,29 +84,4 @@ public class Reserv {
         this.fechaSalida = fechaSalida;
     }
 
-    public Long getClienteId() {
-        return clienteId;
-    }
-
-    public void setClienteId(Long clienteId) {
-        this.clienteId = clienteId;
-    }
-
-    public Long getHabitacionId() {
-        return habitacionId;
-    }
-
-    public void setHabitacionId(Long habitacionId) {
-        this.habitacionId = habitacionId;
-    }
-
-    public Long getPagoId() {
-        return pagoId;
-    }
-
-    public void setPagoId(Long pagoId) {
-        this.pagoId = pagoId;
-    }
-
 }
-

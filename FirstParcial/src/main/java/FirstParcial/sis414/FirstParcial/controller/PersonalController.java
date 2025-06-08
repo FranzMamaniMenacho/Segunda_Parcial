@@ -1,6 +1,7 @@
 package FirstParcial.sis414.FirstParcial.controller;
 
 import FirstParcial.sis414.FirstParcial.entity.Personal;
+import FirstParcial.sis414.FirstParcial.repository.PersonalRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,11 @@ public class PersonalController {
 
     private static final Logger logger = LoggerFactory.getLogger(PersonalController.class);
     private final List<Personal> personalList = new ArrayList<>();
+    private final PersonalRepository personalRepository;
+
+    public PersonalController(PersonalRepository personalRepository) {
+        this.personalRepository = personalRepository;
+    }
 
     @GetMapping
     public ResponseEntity<List<Personal>> getAllPersonal() {

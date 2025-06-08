@@ -1,6 +1,7 @@
 package FirstParcial.sis414.FirstParcial.controller;
 
 import FirstParcial.sis414.FirstParcial.entity.Pago;
+import FirstParcial.sis414.FirstParcial.repository.PagoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,11 @@ public class PagoController {
 
     private static final Logger logger = LoggerFactory.getLogger(PagoController.class);
     private final List<Pago> pagos = new ArrayList<>();
+    private final PagoRepository pagoRepository;
+
+    public PagoController(PagoRepository pagoRepository) {
+        this.pagoRepository = pagoRepository;
+    }
 
     @GetMapping
     public ResponseEntity<List<Pago>> getAllPagos() {
