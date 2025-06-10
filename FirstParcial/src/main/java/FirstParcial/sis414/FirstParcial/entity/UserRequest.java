@@ -1,8 +1,10 @@
 package FirstParcial.sis414.FirstParcial.entity;
 
-public class user {
+public class UserRequest {
     private String username;
     private String password;
+
+    public UserRequest() {}  // Constructor vacío obligatorio para @RequestBody
 
     public String getUsername() {
         return username;
@@ -19,5 +21,4 @@ public class user {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
