@@ -7,17 +7,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-@CrossOrigin(origins ="http://localhost")
 
+@CrossOrigin(origins = "http://localhost")
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {
 
     private static final Logger logger = LoggerFactory.getLogger(ClienteController.class);
-    private final List<Cliente> clientes = new ArrayList<>();
     private final ClienteRepository clienteRepository;
 
     public ClienteController(ClienteRepository clienteRepository) {
@@ -25,51 +23,30 @@ public class ClienteController {
     }
 
     @GetMapping
-    public ClienteRepository getAllClientes() {
+    public ResponseEntity<List<Cliente>> getAllClientes() {
         logger.info("Obteniendo listado completo de clientes");
-        return this.clienteRepository;
+        return ResponseEntity.ok(clienteRepository.findAll());
     }
 
     @GetMapping("/{id}")
-    public ClienteRepository getClienteById(@PathVariable Long id) {
-        logger.info("Consultando cliente con ID: {}", id);
-        Optional<Cliente> cliente = clientes.stream()
-                .filter(c -> c.getId().equals(id))
-                .findFirst();
-
-        if (cliente.isPresent()) {
-            return this.clienteRepository;
-        } else {
-            logger.warn("Cliente con ID {} no encontrado", id);
-            return this.clienteRepository;
-        }
+    public ResponseEntity<Cliente> getClienteById(@PathVariable Long id) {
+        return clienteRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
 
     @PostMapping
     public ResponseEntity<?> createCliente(@RequestBody Cliente cliente) {
-        if (cliente.getId() == null) {
-            logger.error("Error: ID es requerido para crear cliente");
-            return ResponseEntity.badRequest().body("El ID es requerido para crear un cliente");
-        }
-
-        if (clientes.stream().anyMatch(c -> c.getId().equals(cliente.getId()))) {
-            logger.error("Error: Cliente con ID {} ya existe", cliente.getId());
-            return ResponseEntity.badRequest().body("El ID del cliente ya está registrado");
-        }
-
-        clientes.add(cliente);
-        logger.info("Cliente creado exitosamente con ID: {}", cliente.getId());
-        return ResponseEntity.ok(cliente);
+        logger.info("Creando cliente nuevo");
+        return ResponseEntity.ok(clienteRepository.save(cliente));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateCliente(@PathVariable Long id, @RequestBody Cliente cliente) {
-        Optional<Cliente> existingCliente = clientes.stream()
-                .filter(c -> c.getId().equals(id))
-                .findFirst();
-
+        Optional<Cliente> existingCliente = clienteRepository.findById(id);
         if (existingCliente.isEmpty()) {
-            logger.warn("No existe cliente con ID {} para actualizar", id);
+            logger.warn("Cliente con ID {} no encontrado", id);
             return ResponseEntity.status(404).body("Cliente no encontrado");
         }
 
@@ -80,28 +57,26 @@ public class ClienteController {
         toUpdate.setTelefono(cliente.getTelefono());
 
         logger.info("Cliente con ID {} actualizado exitosamente", id);
-        return ResponseEntity.ok(toUpdate);
+        return ResponseEntity.ok(clienteRepository.save(toUpdate));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCliente(@PathVariable Long id) {
-        boolean removed = clientes.removeIf(c -> c.getId().equals(id));
-        if (removed) {
-            logger.info("Cliente con ID {} eliminado correctamente", id);
-            return ResponseEntity.ok("Cliente eliminado exitosamente");
+        if (!clienteRepository.existsById(id)) {
+            logger.warn("Cliente con ID {} no encontrado", id);
+            return ResponseEntity.status(404).body("Cliente no encontrado");
         }
-        logger.warn("No se encontró cliente con ID {} para eliminar", id);
-        return ResponseEntity.status(404).body("Cliente no encontrado");
+
+        clienteRepository.deleteById(id);
+        logger.info("Cliente con ID {} eliminado correctamente", id);
+        return ResponseEntity.ok("Cliente eliminado exitosamente");
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<?> partialUpdateCliente(@PathVariable Long id, @RequestBody Cliente updates) {
-        Optional<Cliente> clienteOpt = clientes.stream()
-                .filter(c -> c.getId().equals(id))
-                .findFirst();
-
+        Optional<Cliente> clienteOpt = clienteRepository.findById(id);
         if (clienteOpt.isEmpty()) {
-            logger.warn("Cliente con ID {} no encontrado para actualización", id);
+            logger.warn("Cliente con ID {} no encontrado", id);
             return ResponseEntity.status(404).body("Cliente no encontrado");
         }
 
@@ -109,8 +84,7 @@ public class ClienteController {
 
         if (updates.getNombres() != null) {
             cliente.setNombres(updates.getNombres());
-            logger.
-                    info("Nombres actualizados para cliente ID: {}", id);
+            logger.info("Nombres actualizados para cliente ID: {}", id);
         }
         if (updates.getApellidos() != null) {
             cliente.setApellidos(updates.getApellidos());
@@ -125,7 +99,6 @@ public class ClienteController {
             logger.info("Teléfono actualizado para cliente ID: {}", id);
         }
 
-        logger.info("Cliente con ID {} actualizado parcialmente", id);
-        return ResponseEntity.ok(cliente);
+        return ResponseEntity.ok(clienteRepository.save(cliente));
     }
 }

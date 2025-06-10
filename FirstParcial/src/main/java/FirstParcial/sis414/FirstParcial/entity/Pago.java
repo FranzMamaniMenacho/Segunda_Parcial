@@ -15,15 +15,12 @@ public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-    private double monto;
+    private Double monto;
     private LocalDate date;
     private String metodo;
     private String estado;
 
-    public Pago() {
-    }
-
-    public Pago(String id, double monto, LocalDate date, String metodo, String estado) {
+    public Pago(String id, Double monto, LocalDate date, String metodo, String estado) {
         this.id = id;
         this.monto = monto;
         this.date = date;

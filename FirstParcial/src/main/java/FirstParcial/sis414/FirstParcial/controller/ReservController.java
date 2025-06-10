@@ -1,22 +1,13 @@
 package FirstParcial.sis414.FirstParcial.controller;
 
-import FirstParcial.sis414.FirstParcial.entity.Cliente;
-import FirstParcial.sis414.FirstParcial.entity.Habitacion;
-import FirstParcial.sis414.FirstParcial.entity.Pago;
 import FirstParcial.sis414.FirstParcial.entity.Reserv;
-import FirstParcial.sis414.FirstParcial.repository.ClienteRepository;
-import FirstParcial.sis414.FirstParcial.repository.HabitacionRepository;
-import FirstParcial.sis414.FirstParcial.repository.PagoRepository;
 import FirstParcial.sis414.FirstParcial.repository.ReservRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost")
@@ -25,179 +16,95 @@ import java.util.Optional;
 public class ReservController {
 
     private static final Logger logger = LoggerFactory.getLogger(ReservController.class);
-    private final List<Reserv> reservas = new ArrayList<>();
     private final ReservRepository reservRepository;
-    private final ClienteRepository clienteRepository;
-    private final HabitacionRepository habitacionRepository;
-    private final PagoRepository pagoRepository;
 
-    public ReservController(ReservRepository reservRepository, ClienteRepository clienteRepository, HabitacionRepository habitacionRepository, PagoRepository pagoRepository) {
+    public ReservController(ReservRepository reservRepository) {
         this.reservRepository = reservRepository;
-        this.clienteRepository = clienteRepository;
-        this.habitacionRepository = habitacionRepository;
-        this.pagoRepository = pagoRepository;
     }
 
     @GetMapping
     public ResponseEntity<List<Reserv>> getAllReservas() {
-        logger.info("Obteniendo listado completo de reservas");
-        return ResponseEntity.ok(reservas);
+        logger.info("Obteniendo lista completa de reservas");
+        return ResponseEntity.ok(reservRepository.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getReservaById(@PathVariable Long id) {
-        Optional<Reserv> reserva = reservas.stream()
-                .filter(r -> r.getId().equals(id))
-                .findFirst();
-
-        if (reserva.isPresent()) {
-            return ResponseEntity.ok(reserva.get());
-        } else {
-            logger.warn("Reserva con ID {} no encontrada", id);
-            return ResponseEntity.status(404).body("Reserva no encontrada");
-        }
+    public ResponseEntity<Reserv> getClienteById(@PathVariable Long id) {
+        return reservRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
 
     @PostMapping
     public ResponseEntity<?> createReserva(@RequestBody Reserv reserva) {
-        try {
-            if (reserva.getId() == null) {
-                return ResponseEntity.badRequest().body("El ID es requerido");
-            }
-
-            if (reservas.stream().anyMatch(r -> r.getId().equals(reserva.getId()))) {
-                return ResponseEntity.badRequest().body("El ID ya está registrado");
-            }
-
-            if (reserva.getFechaEntrada().isAfter(reserva.getFechaSalida())) {
-                return ResponseEntity.badRequest().body("La fecha de entrada debe ser anterior a la fecha de salida");
-            }
-
-            reservas.add(reserva);
-            logger.info("Reserva creada exitosamente: {}", reserva);
-            return ResponseEntity.ok(reserva);
-
-        } catch (Exception e) {
-            logger.error("Error al crear reserva: {}", e.getMessage());
-            return ResponseEntity.internalServerError().body("Error interno del servidor");
-        }
+        logger.info("Creando nueva reserva");
+        return ResponseEntity.ok(reservRepository.save(reserva));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateReserva(@PathVariable Long id, @RequestBody Reserv reserva) {
-        try {
-            if (!id.equals(reserva.getId())) {
-                return ResponseEntity.badRequest().body("ID en URL no coincide con ID en body");
-            }
-
-            Optional<Reserv> existingReserva = reservas.stream()
-                    .filter(r -> r.getId().equals(id))
-                    .findFirst();
-
-            if (existingReserva.isEmpty()) {
-                return ResponseEntity.status(404).body("Reserva no encontrada");
-            }
-
-            if (reserva.getFechaEntrada().isAfter(reserva.getFechaSalida())) {
-                return ResponseEntity.badRequest().body("La fecha de entrada debe ser anterior a la fecha de salida");
-            }
-
-            Reserv toUpdate = existingReserva.get();
-            toUpdate.setCliente(reserva.getCliente());
-            toUpdate.setHabitacion(reserva.getHabitacion());
-            toUpdate.setFechaEntrada(reserva.getFechaEntrada());
-            toUpdate.setFechaSalida(reserva.getFechaSalida());
-            toUpdate.setPago(reserva.getPago());
-
-            logger.info("Reserva actualizada: {}", toUpdate);
-            return ResponseEntity.ok(toUpdate);
-
-        } catch (Exception e) {
-            logger.error("Error al actualizar reserva: {}", e.getMessage());
-            return ResponseEntity.internalServerError().body("Error interno del servidor");
+    public ResponseEntity<?> updateReserva(@PathVariable Long id, @RequestBody Reserv reservaDetails) {
+        Optional<Reserv> optional = reservRepository.findById(id);
+        if (optional.isEmpty()) {
+            logger.warn("Reserva con ID {} no encontrada para actualizar", id);
+            return ResponseEntity.status(404).body("Reserva no encontrada");
         }
-    }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<?> partialUpdateReserva(
-            @PathVariable Long id,
-            @RequestBody Map<String, Object> updates) {
+        Reserv reserva = optional.get();
 
-        try {
-            Optional<Reserv> reservaOpt = reservas.stream()
-                    .filter(r -> r.getId().equals(id))
-                    .findFirst();
+        reserva.setCliente(reservaDetails.getCliente());
+        reserva.setHabitacion(reservaDetails.getHabitacion());
+        reserva.setFechaEntrada(reservaDetails.getFechaEntrada());
+        reserva.setFechaSalida(reservaDetails.getFechaSalida());
+        reserva.setPago(reservaDetails.getPago());
 
-            if (reservaOpt.isEmpty()) {
-                return ResponseEntity.status(404).body("Reserva no encontrada");
-            }
-
-            Reserv reserva = reservaOpt.get();
-            boolean hasUpdates = false;
-
-//            if (updates.containsKey("pago")) {
-//                Object pagoUpdate = updates.get("pago");
-//
-//                if (pagoUpdate instanceof Map<?, ?> pagoMap) {
-//                    reserva.setPago(((Number) pagoMap.get("id")).toString());
-//                } else if (pagoUpdate instanceof Number) {
-//                    reserva.setPago(((Number) pagoUpdate).toString());
-//                }
-//
-//                hasUpdates = true;
-//            }
-            if (updates.containsKey("pago")) {
-                Object pagoUpdate = updates.get("pago");
-
-                Long pagoId = null;
-
-                if (pagoUpdate instanceof Map<?, ?> pagoMap) {
-                    Object idValue = pagoMap.get("id");
-                    if (idValue instanceof Number) {
-                        pagoId = ((Number) idValue).longValue();
-                    }
-                } else if (pagoUpdate instanceof Number) {
-                    pagoId = ((Number) pagoUpdate).longValue();
-                }
-
-                if (pagoId != null) {
-                    Pago pago = new Pago();
-                    pago.setId(String.valueOf(pagoId)); // Asigna solo el ID
-                    reserva.setPago(pago);
-                    hasUpdates = true;
-                }
-            }
-
-
-            if (updates.containsKey("fechaEntrada")) {
-                reserva.setFechaEntrada(LocalDate.parse((String) updates.get("fechaEntrada")));
-                hasUpdates = true;
-            }
-
-            if (!hasUpdates) {
-                return ResponseEntity.badRequest().body("No se proporcionaron campos válidos");
-            }
-
-            return ResponseEntity.ok(reserva);
-
-        } catch (Exception e) {
-            logger.error("Error en actualización parcial", e);
-            return ResponseEntity.badRequest().body("Formato de datos inválido");
-        }
+        logger.info("Reserva con ID {} actualizada completamente", id);
+        return ResponseEntity.ok(reservRepository.save(reserva));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteReserva(@PathVariable Long id) {
-        try {
-            boolean removed = reservas.removeIf(r -> r.getId().equals(id));
-            if (removed) {
-                logger.info("Reserva con ID {} eliminada", id);
-                return ResponseEntity.ok("Reserva eliminada exitosamente");
-            }
+        if (!reservRepository.existsById(id)) {
+            logger.warn("Reserva con ID {} no encontrada para eliminar", id);
             return ResponseEntity.status(404).body("Reserva no encontrada");
-        } catch (Exception e) {
-            logger.error("Error al eliminar reserva: {}", e.getMessage());
-            return ResponseEntity.internalServerError().body("Error interno del servidor");
         }
+
+        reservRepository.deleteById(id);
+        logger.info("Reserva con ID {} eliminada exitosamente", id);
+        return ResponseEntity.ok("Reserva eliminada exitosamente");
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<?> partialUpdateReserva(@PathVariable Long id, @RequestBody Reserv updates) {
+        Optional<Reserv> optional = reservRepository.findById(id);
+        if (optional.isEmpty()) {
+            logger.warn("Reserva con ID {} no encontrada para actualización parcial", id);
+            return ResponseEntity.status(404).body("Reserva no encontrada");
+        }
+
+        Reserv reserva = optional.get();
+
+        if (updates.getCliente() != null) {
+            reserva.setCliente(updates.getCliente());
+            logger.info("Cliente actualizado para reserva ID: {}", id);
+        }
+        if (updates.getHabitacion() != null) {
+            reserva.setHabitacion(updates.getHabitacion());
+            logger.info("Habitación actualizada para reserva ID: {}", id);
+        }
+        if (updates.getFechaEntrada() != null) {
+            reserva.setFechaEntrada(updates.getFechaEntrada());
+            logger.info("Fecha de entrada actualizada para reserva ID: {}", id);
+        }
+        if (updates.getFechaSalida() != null) {
+            reserva.setFechaSalida(updates.getFechaSalida());
+            logger.info("Fecha de salida actualizada para reserva ID: {}", id);
+        }
+        if (updates.getPago() != null) {
+            reserva.setPago(updates.getPago());
+            logger.info("Pago actualizado para reserva ID: {}", id);
+        }
+
+        return ResponseEntity.ok(reservRepository.save(reserva));
     }
 }
