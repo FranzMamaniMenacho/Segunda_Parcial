@@ -4,7 +4,7 @@ public class UserRequest {
     private String username;
     private String password;
 
-    public UserRequest() {}  // Constructor vacío obligatorio para @RequestBody
+    public UserRequest() {}
 
     public String getUsername() {
         return username;

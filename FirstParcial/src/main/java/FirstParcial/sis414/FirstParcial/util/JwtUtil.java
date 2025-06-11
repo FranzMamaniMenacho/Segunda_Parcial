@@ -10,7 +10,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private final String SECRET = "thisIsASecretKeyThatIsAtLeast32BytesLong!"; // Must be 256-bit (32 bytes) for HS256
+    private final String SECRET = "thisIsASecretKeyThatIsAtLeast32BytesLong!";
     private final SecretKey SECRET_KEY = new SecretKeySpec(SECRET.getBytes(), SignatureAlgorithm.HS256.getJcaName());
 
     public String generateToken(String username){
@@ -22,7 +22,7 @@ public class JwtUtil {
                     .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                     .compact();
         } catch (Exception e) {
-            e.printStackTrace(); // Log the error
+            e.printStackTrace();
             throw new RuntimeException("Error generating token: " + e.getMessage(), e);
         }
     }
