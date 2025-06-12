@@ -27,14 +27,14 @@ public class Reserv {
 
     private LocalDate fechaEntrada;
     private LocalDate fechaSalida;
-
-    public Reserv(Cliente clienteID, Habitacion habitacionID, LocalDate fechaEntrada, LocalDate fechaSalida, Pago pagoID) {
-        this.clienteID = clienteID;
-        this.habitacionID = habitacionID;
-        this.fechaEntrada = fechaEntrada;
-        this.fechaSalida = fechaSalida;
-        this.pagoID = pagoID;
-    }
+    public Reserv(){}
+//    public Reserv(Cliente clienteID, Habitacion habitacionID, LocalDate fechaEntrada, LocalDate fechaSalida, Pago pagoID) {
+//        this.clienteID = clienteID;
+//        this.habitacionID = habitacionID;
+//        this.fechaEntrada = fechaEntrada;
+//        this.fechaSalida = fechaSalida;
+//        this.pagoID = pagoID;
+//    }
 
     public Long getId() {
         return id;

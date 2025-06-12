@@ -11,13 +11,13 @@ public class Habitacion {
     private String tipoHabitacion;
     private String estado;
     private double precioNoche;
-
-    public Habitacion(Long id, String tipoHabitacion, String estado, double precioNoche) {
-        this.id = id;
-        this.tipoHabitacion = tipoHabitacion;
-        this.estado= estado;
-        this.precioNoche = precioNoche;
-    }
+public Habitacion(){}
+//    public Habitacion(Long id, String tipoHabitacion, String estado, double precioNoche) {
+//        this.id = id;
+//        this.tipoHabitacion = tipoHabitacion;
+//        this.estado= estado;
+//        this.precioNoche = precioNoche;
+//    }
     public Long getId() {
         return id;
     }

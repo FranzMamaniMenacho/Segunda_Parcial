@@ -2,8 +2,6 @@ package FirstParcial.sis414.FirstParcial.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name="cliente")
 public class Cliente {
@@ -14,15 +12,15 @@ public class Cliente {
     private String apellidos;
     private String ci;
     private String telefono;
+    public Cliente(){}
 
-
-    public Cliente(Long id, String nombres, String apellidos, String ci, String telefono){
-        this.id = id;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.ci = ci;
-        this.telefono = telefono;
-    }
+//    public Cliente(Long id, String nombres, String apellidos, String ci, String telefono){
+//        this.id = id;
+//        this.nombres = nombres;
+//        this.apellidos = apellidos;
+//        this.ci = ci;
+//        this.telefono = telefono;
+//    }
     public Long getId(){
         return id;
     }

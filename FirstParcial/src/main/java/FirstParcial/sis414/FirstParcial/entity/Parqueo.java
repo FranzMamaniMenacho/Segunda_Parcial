@@ -22,15 +22,16 @@ public class Parqueo {
     }
 
     private String placa;
+    public Parqueo(){}
 
-    public Parqueo(Long id,String estado, double precioPorNoche, String marca, String color, String placa) {
-        this.id = id;
-        this.estado = estado;
-        this.precioPorNoche = precioPorNoche;
-        this.marca = marca;
-        this.color = color;
-        this.placa = placa;
-    }
+//    public Parqueo(Long id,String estado, double precioPorNoche, String marca, String color, String placa) {
+//        this.id = id;
+//        this.estado = estado;
+//        this.precioPorNoche = precioPorNoche;
+//        this.marca = marca;
+//        this.color = color;
+//        this.placa = placa;
+//    }
     public Long getId() {
         return id;
     }

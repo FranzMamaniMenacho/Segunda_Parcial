@@ -11,12 +11,12 @@ public class Personal {
     private String nombre;
     private String rol;
     private String CI;
-
-    public Personal(String nombre, String rol, String CI) {
-        this.nombre = nombre;
-        this.rol = rol;
-        this.CI = CI;
-    }
+    public Personal(){}
+//    public Personal(String nombre, String rol, String CI) {
+//        this.nombre = nombre;
+//        this.rol = rol;
+//        this.CI = CI;
+//    }
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
 

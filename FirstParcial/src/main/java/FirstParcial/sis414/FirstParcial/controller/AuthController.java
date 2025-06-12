@@ -1,6 +1,6 @@
 package FirstParcial.sis414.FirstParcial.controller;
 
-import FirstParcial.sis414.FirstParcial.entity.user;
+import FirstParcial.sis414.FirstParcial.entity.User;
 import FirstParcial.sis414.FirstParcial.repository.UserRepository;
 import FirstParcial.sis414.FirstParcial.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,11 @@ public class AuthController {
     private UserRepository userRepository;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody user userRequest) {
+    public ResponseEntity<?> login(@RequestBody User userRequest) {
         String username = userRequest.getUsername();
         String password = userRequest.getPassword();
 
-        Optional<user> optionalUser = userRepository.findByUsername(username);
+        Optional<User> optionalUser = userRepository.findByUsername(username);
 
         if (optionalUser.isEmpty() || !optionalUser.get().getPassword().equals(password)) {
             return ResponseEntity.status(403).body("Usuario o contraseña incorrectos");

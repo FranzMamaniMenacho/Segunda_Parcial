@@ -19,14 +19,14 @@ public class Pago {
     private LocalDate date;
     private String metodo;
     private String estado;
-
-    public Pago(String id, Double monto, LocalDate date, String metodo, String estado) {
-        this.id = id;
-        this.monto = monto;
-        this.date = date;
-        this.metodo = metodo;
-        this.estado = estado;
-    }
+    public Pago(){}
+//    public Pago(String id, Double monto, LocalDate date, String metodo, String estado) {
+//        this.id = id;
+//        this.monto = monto;
+//        this.date = date;
+//        this.metodo = metodo;
+//        this.estado = estado;
+//    }
 
 
     public void setId(String id) { this.id = id; }
